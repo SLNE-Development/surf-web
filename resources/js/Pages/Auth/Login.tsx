@@ -1,17 +1,16 @@
-import Checkbox from "@/components/Checkbox";
-import InputError from "@/components/InputError";
-import InputLabel from "@/components/InputLabel";
-import PrimaryButton from "@/components/PrimaryButton";
-import TextInput from "@/components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
-import { Head, Link, useForm } from "@inertiajs/react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { InputError } from "@/components/ui/input-error";
+import { InputGroup } from "@/components/ui/input-group";
+import { Label } from "@/components/ui/label";
+import GuestLayout from "@/layouts/GuestLayout";
+import { Head, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 
 export default function Login({
-    status,
     canResetPassword,
 }: {
-    status?: string;
     canResetPassword: boolean;
 }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -29,81 +28,66 @@ export default function Login({
     };
 
     return (
-        <GuestLayout>
-            <Head title="Log in" />
+        <GuestLayout header="Anmelden">
+            <Head title="Anmelden" />
 
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    {status}
-                </div>
-            )}
-
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
+            <form onSubmit={submit} className="space-y-6">
+                <InputGroup>
+                    <Label htmlFor="email">Email</Label>
+                    <Input
                         id="email"
                         type="email"
                         name="email"
+                        placeholder="info@slne.dev"
                         value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
                         onChange={(e) => setData("email", e.target.value)}
+                        autoComplete="email"
+                        autoFocus
                     />
+                    <InputError errorMessage={errors.email} />
+                </InputGroup>
 
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
+                <InputGroup>
+                    <Label htmlFor="password">Passwort</Label>
+                    <Input
                         id="password"
                         type="password"
                         name="password"
+                        placeholder="********"
                         value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
                         onChange={(e) => setData("password", e.target.value)}
+                        autoComplete="current-password"
                     />
+                    <InputError errorMessage={errors.password} />
+                </InputGroup>
 
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
+                <InputGroup className="flex-row">
+                    <Checkbox
+                        onCheckedChange={(checked) =>
+                            setData("remember", Boolean(checked))
+                        }
+                        checked={data.remember}
+                        id="remember"
+                    />
+                    <Label htmlFor="remember">Anmeldung speichern</Label>
+                </InputGroup>
 
-                <div className="mt-4 block">
-                    <label className="flex items-center">
-                        <Checkbox
-                            name="remember"
-                            checked={data.remember}
-                            onChange={(e) =>
-                                setData(
-                                    "remember",
-                                    (e.target.checked || false) as false
-                                )
-                            }
-                        />
-                        <span className="ms-2 text-sm text-gray-600 dark:text-gray-400">
-                            Remember me
-                        </span>
-                    </label>
-                </div>
-
-                <div className="mt-4 flex items-center justify-end">
+                <div className="flex flex-row items-center justify-end">
                     {canResetPassword && (
-                        <Link
-                            href={route("password.request")}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+                        <Button
+                            variant={"link"}
+                            onClick={() => {
+                                window.location.href =
+                                    route("password.request");
+                            }}
                         >
-                            Forgot your password?
-                        </Link>
+                            Passwort vergessen?
+                        </Button>
                     )}
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
+                    <Button disabled={processing}>Anmelden</Button>
                 </div>
+
+                <div className="mt-4 flex items-center justify-end"></div>
             </form>
         </GuestLayout>
     );

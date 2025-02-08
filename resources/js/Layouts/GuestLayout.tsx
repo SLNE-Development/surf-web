@@ -1,19 +1,42 @@
-import ApplicationLogo from "@/components/ApplicationLogo";
+import { ApplicationLogo } from "@/components/ui/application-logo";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
 import { Link } from "@inertiajs/react";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 
-export default function Guest({ children }: PropsWithChildren) {
+export default function GuestLayout({
+    header,
+    headerDescription,
+    children,
+}: PropsWithChildren<{ header?: ReactNode; headerDescription?: ReactNode }>) {
     return (
-        <div className="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0 dark:bg-gray-900">
-            <div>
-                <Link href="/">
-                    <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />
-                </Link>
-            </div>
+        <div className="flex min-h-screen flex-col gap-6 items-center justify-center bg-neutral-100 p-4 lg:p-6">
+            <Link href="/">
+                <ApplicationLogo size={"2xl"} />
+            </Link>
 
-            <div className="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg dark:bg-gray-800">
-                {children}
-            </div>
+            <Card className="w-full max-w-md">
+                {(header || headerDescription) && (
+                    <CardHeader>
+                        {header && <CardTitle>{header}</CardTitle>}
+                        {headerDescription && (
+                            <CardDescription>
+                                {headerDescription}
+                            </CardDescription>
+                        )}
+                    </CardHeader>
+                )}
+                <CardContent
+                    className={header || headerDescription ? "" : "pt-6"}
+                >
+                    {children}
+                </CardContent>
+            </Card>
         </div>
     );
 }

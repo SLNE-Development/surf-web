@@ -1,5 +1,11 @@
+import { cn } from "@/lib/utils";
 import { PropsWithChildren } from "react";
 
-export function InputGroup({ children }: PropsWithChildren) {
-    return <div className="flex flex-col gap-2">{children}</div>;
+export function InputGroup({
+    children,
+    className,
+}: PropsWithChildren<{ className?: string }>) {
+    return (
+        <div className={cn("flex flex-col gap-2", className)}>{children}</div>
+    );
 }
