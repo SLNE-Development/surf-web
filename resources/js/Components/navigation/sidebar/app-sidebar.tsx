@@ -151,10 +151,10 @@ export function AppSidebar({ user }: { user: User }) {
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
+                        <SidebarMenuButton size="2xl" asChild>
                             <Link
                                 href={route("dashboard")}
-                                className="flex flex-row items-center"
+                                className="flex flex-row"
                             >
                                 <div className="size-12">
                                     <img
@@ -162,13 +162,13 @@ export function AppSidebar({ user }: { user: User }) {
                                         alt="Logo"
                                     />
                                 </div>
-                                <div className="grid flex-1 text-left text-sm leading-tight">
-                                    <span className="truncate font-semibold">
+                                <div className="flex flex-col text-sm">
+                                    <div className="truncate font-semibold">
                                         Arty Support
-                                    </span>
-                                    <span className="truncate text-[0.6rem]">
+                                    </div>
+                                    <div className="truncate text-[0.6rem]">
                                         SLNE Development
-                                    </span>
+                                    </div>
                                 </div>
                             </Link>
                         </SidebarMenuButton>
