@@ -75,6 +75,7 @@ export default function Login({
                 <div className="flex flex-row items-center justify-end">
                     {canResetPassword && (
                         <Button
+                            type="button"
                             variant={"link"}
                             onClick={() => {
                                 window.location.href =
@@ -86,8 +87,6 @@ export default function Login({
                     )}
                     <Button disabled={processing}>Anmelden</Button>
                 </div>
-
-                <div className="mt-4 flex items-center justify-end"></div>
             </form>
         </GuestLayout>
     );
