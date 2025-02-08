@@ -83,7 +83,11 @@ export function NavUser({ user }: { user: User }) {
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem
+                                onClick={() => {
+                                    router.get("/profile");
+                                }}
+                            >
                                 <FaUser />
                                 Profil
                             </DropdownMenuItem>
