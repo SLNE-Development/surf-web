@@ -5,7 +5,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/Components/ui/card";
+} from "@/components/ui/card";
 import {
     Dialog,
     DialogClose,
@@ -16,7 +16,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/Components/ui/input";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
     Pagination,
@@ -25,7 +25,7 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from "@/Components/ui/pagination";
+} from "@/components/ui/pagination";
 import {
     Table,
     TableBody,
@@ -33,9 +33,9 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/Components/ui/table";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import AddTicketDialog, { Ticket } from "@/Pages/AddLike";
+} from "@/components/ui/table";
+import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import AddTicketDialog, { Ticket } from "@/pages/AddLike";
 import { Head, useForm } from "@inertiajs/react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -82,13 +82,7 @@ export default function Dashboard({
     );
 
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Dashboard
-                </h2>
-            }
-        >
+        <AuthenticatedLayout>
             <Head title="Dashboard" />
 
             <Card>

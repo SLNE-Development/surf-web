@@ -7,7 +7,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/Components/ui/input";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
     Table,
@@ -16,8 +16,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/Components/ui/table";
-import { User } from "@/Pages/Dashboard";
+} from "@/components/ui/table";
+import { User } from "@/pages/Dashboard";
 import { router } from "@inertiajs/react";
 import axios from "axios";
 import { debounce } from "lodash";
