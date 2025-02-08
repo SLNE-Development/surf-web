@@ -1,13 +1,6 @@
 "use client";
 
-import {
-    BadgeCheck,
-    Bell,
-    ChevronsUpDown,
-    CreditCard,
-    LogOut,
-    Sparkles,
-} from "lucide-react";
+import { ChevronsUpDown } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -26,6 +19,8 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar";
 import { User } from "@/types";
+import { router } from "@inertiajs/react";
+import { FaArrowRightFromBracket, FaBell, FaUser } from "react-icons/fa6";
 
 export function NavUser({ user }: { user: User }) {
     const { isMobile } = useSidebar();
@@ -89,29 +84,22 @@ export function NavUser({ user }: { user: User }) {
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
                             <DropdownMenuItem>
-                                <Sparkles />
-                                Upgrade to Pro
+                                <FaUser />
+                                Profil
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <FaBell />
+                                Benachrichtigungen
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            <DropdownMenuItem>
-                                <BadgeCheck />
-                                Account
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <CreditCard />
-                                Billing
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Bell />
-                                Notifications
-                            </DropdownMenuItem>
-                        </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            <LogOut />
-                            Log out
+                        <DropdownMenuItem
+                            onClick={() => {
+                                router.post("/logout");
+                            }}
+                        >
+                            <FaArrowRightFromBracket />
+                            Abmelden
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
