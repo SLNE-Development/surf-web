@@ -4,8 +4,6 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -17,7 +15,9 @@ import { usePage } from "@inertiajs/react";
 import { PropsWithChildren } from "react";
 
 export default function Authenticated({ children }: PropsWithChildren<{}>) {
-    const user = usePage().props.auth.user;
+    const page = usePage().props;
+    const user = page.auth.user;
+    const breadcrumbs = page.breadcrumbs;
 
     return (
         <SidebarProvider>
@@ -32,17 +32,13 @@ export default function Authenticated({ children }: PropsWithChildren<{}>) {
                         />
                         <Breadcrumb>
                             <BreadcrumbList>
-                                <BreadcrumbItem className="hidden md:block">
-                                    <BreadcrumbLink href="#">
-                                        Building Your Application
-                                    </BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage>
-                                        Data Fetching
-                                    </BreadcrumbPage>
-                                </BreadcrumbItem>
+                                {breadcrumbs.map((breadcrumb) => (
+                                    <BreadcrumbItem key={breadcrumb.title}>
+                                        <BreadcrumbLink href={breadcrumb.url}>
+                                            {breadcrumb.title}
+                                        </BreadcrumbLink>
+                                    </BreadcrumbItem>
+                                ))}
                             </BreadcrumbList>
                         </Breadcrumb>
                     </div>

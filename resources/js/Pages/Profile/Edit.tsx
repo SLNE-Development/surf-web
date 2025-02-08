@@ -17,7 +17,7 @@ export default function Edit({
 }: PageProps<{ mustVerifyEmail: boolean; status?: string }>) {
     return (
         <AuthenticatedLayout>
-            <Head title="Profile" />
+            <Head title="Profil" />
 
             <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                 <Card>

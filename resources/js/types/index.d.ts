@@ -14,5 +14,10 @@ export type PageProps<
     auth: {
         user: User;
     };
+    breadcrumbs: {
+        title: string;
+        url?: string;
+        is_current_page: boolean;
+    }[];
     ziggy: Config & { location: string };
 };
