@@ -1,7 +1,9 @@
-import InputError from "@/components/InputError";
-import PrimaryButton from "@/components/PrimaryButton";
-import TextInput from "@/components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { InputError } from "@/components/ui/input-error";
+import { InputGroup } from "@/components/ui/input-group";
+import { Label } from "@/components/ui/label";
+import GuestLayout from "@/layouts/GuestLayout";
 import { Head, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 
@@ -17,38 +19,42 @@ export default function ForgotPassword({ status }: { status?: string }) {
     };
 
     return (
-        <GuestLayout>
-            <Head title="Forgot Password" />
+        <GuestLayout header="Passwort vergessen">
+            <Head title="Passwort vergessen" />
 
             <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                Forgot your password? No problem. Just let us know your email
-                address and we will email you a password reset link that will
-                allow you to choose a new one.
+                Passwort vergessen? Kein Problem. Lass uns einfach deine
+                Email-Adresse wissen und wir senden dir einen Link zum
+                Zurücksetzen des Passworts per Email, der es dir ermöglicht, ein
+                neues zu wählen.
             </div>
 
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
-                    {status}
-                </div>
-            )}
+            <form onSubmit={submit} className="space-y-6">
+                <InputGroup>
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="info@slne.dev"
+                        value={data.email}
+                        autoFocus
+                        onChange={(e) => setData("email", e.target.value)}
+                    />
+                    <InputError errorMessage={errors.email} />
+                </InputGroup>
 
-            <form onSubmit={submit}>
-                <TextInput
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={data.email}
-                    className="mt-1 block w-full"
-                    isFocused={true}
-                    onChange={(e) => setData("email", e.target.value)}
-                />
-
-                <InputError message={errors.email} className="mt-2" />
-
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Email Password Reset Link
-                    </PrimaryButton>
+                <div className="flex flex-row items-center justify-end">
+                    <Button
+                        type="button"
+                        variant={"link"}
+                        onClick={() => {
+                            window.location.href = route("login");
+                        }}
+                    >
+                        Anmelden?
+                    </Button>
+                    <Button disabled={processing}>Absenden</Button>
                 </div>
             </form>
         </GuestLayout>
