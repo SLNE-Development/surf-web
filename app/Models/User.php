@@ -3,6 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Team\Member\ServerTeamMember;
+use App\Models\Team\Member\ServerTeamMemberNote;
+use App\Models\Team\Member\ServerTeamMemberPromotion;
+use App\Models\Team\Member\ServerTeamMemberValuation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,8 +52,23 @@ class User extends Authenticatable
         ];
     }
 
-    public function attachedTickets()
+    public function serverTeamMember()
     {
-        return $this->belongsToMany(Ticket::class, 'user_attached_tickets');
+        return $this->hasOne(ServerTeamMember::class);
+    }
+
+    public function createdServerTeamMemberNotes()
+    {
+        return $this->hasMany(ServerTeamMemberNote::class, "created_by_id");
+    }
+
+    public function promotedServerTeamMembers()
+    {
+        return $this->hasMany(ServerTeamMemberPromotion::class, "promoted_by_id");
+    }
+
+    public function valuatedServerTeamMembers()
+    {
+        return $this->hasMany(ServerTeamMemberValuation::class, "valuated_by_id");
     }
 }
