@@ -50,7 +50,7 @@ const data = {
                     icon: FaHammer,
                 },
                 {
-                    title: "Settings",
+                    title: "Einstellungen",
                     url: "#",
                     icon: FaGears,
                 },

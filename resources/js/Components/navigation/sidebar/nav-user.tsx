@@ -18,15 +18,23 @@ import {
 } from "@/components/ui/sidebar";
 import { User } from "@/types";
 import { router } from "@inertiajs/react";
+import { useTheme } from "next-themes";
 import {
     FaArrowRightFromBracket,
     FaBell,
+    FaMoon,
     FaSort,
+    FaSun,
     FaUser,
 } from "react-icons/fa6";
 
 export function NavUser({ user }: { user: User }) {
     const { isMobile } = useSidebar();
+    const { setTheme, theme } = useTheme();
+
+    function toggleTheme() {
+        setTheme(theme === "dark" ? "light" : "dark");
+    }
 
     return (
         <SidebarMenu>
@@ -87,6 +95,21 @@ export function NavUser({ user }: { user: User }) {
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
                             <DropdownMenuItem
+                                className="cursor-pointer"
+                                onClick={() => {
+                                    toggleTheme();
+                                }}
+                            >
+                                {theme === "dark" ? <FaSun /> : <FaMoon />}
+                                {theme === "dark"
+                                    ? "Heller Modus"
+                                    : "Dunkler Modus"}
+                            </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup>
+                            <DropdownMenuItem
+                                className="cursor-pointer"
                                 onClick={() => {
                                     router.get("/profile");
                                 }}
@@ -94,13 +117,14 @@ export function NavUser({ user }: { user: User }) {
                                 <FaUser />
                                 Profil
                             </DropdownMenuItem>
-                            <DropdownMenuItem>
+                            <DropdownMenuItem className="cursor-pointer">
                                 <FaBell />
                                 Benachrichtigungen
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
+                            className="cursor-pointer"
                             onClick={() => {
                                 router.post("/logout");
                             }}
