@@ -34,7 +34,7 @@ const data = {
             items: [
                 {
                     title: "Spielerverwaltung",
-                    url: "#",
+                    url: route("core.users.index"),
                     icon: FaUsers,
                 },
                 {
