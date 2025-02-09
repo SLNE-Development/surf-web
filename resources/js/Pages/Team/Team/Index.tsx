@@ -22,6 +22,7 @@ import {
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import { User } from "@/pages/Dashboard";
 import { CreateServerTeamMember } from "@/pages/Team/Team/Create";
+import { EditServerTeamMember } from "@/pages/Team/Team/Edit";
 import { ServerTeamMemberData } from "@/types";
 import { PaginatedModel } from "@/types/helper-types";
 import { Head, Link, router } from "@inertiajs/react";
@@ -125,6 +126,10 @@ export default function ServerTeamMembersIndexPage({
                                                 <FaEye />
                                             </Button>
                                         </Link>
+                                        <EditServerTeamMember
+                                            member={member}
+                                            users={users.data}
+                                        />
                                     </TableCell>
                                 </TableRow>
                             ))}

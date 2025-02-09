@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Team\Team;
 use App\Data\Team\Team\ServerTeamMemberData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Team\Team\StoreServerTeamMemberRequest;
+use App\Http\Requests\Team\Team\UpdateServerTeamMemberRequest;
 use App\Http\Resources\UserResource;
 use App\Models\Team\Member\ServerTeamMember;
 use App\Models\User;
@@ -44,6 +45,14 @@ class ServerTeamMemberController extends Controller
         }
 
         $user->serverTeamMember()->create($data);
+
+        return redirect()->route('team.members.index');
+    }
+
+    public function update(UpdateServerTeamMemberRequest $request, ServerTeamMember $member)
+    {
+        $data = $request->validated();
+        $member->update($data);
 
         return redirect()->route('team.members.index');
     }

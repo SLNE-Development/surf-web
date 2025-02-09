@@ -19,6 +19,13 @@ declare module 'ziggy-js' {
         }
     ],
     "team.members.store": [],
+    "team.members.update": [
+        {
+            "name": "member",
+            "required": true,
+            "binding": "id"
+        }
+    ],
     "imprint": [],
     "privacy": [],
     "register": [],

@@ -23,5 +23,7 @@ class ServerTeamMemberData extends Data
         public ?string $terminationDate,
         public ?CarbonImmutable $createdAt,
         public ?CarbonImmutable $updatedAt,
+
+        public ?int $userId,
     ) {}
 }

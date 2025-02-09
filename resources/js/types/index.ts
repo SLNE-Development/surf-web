@@ -17,9 +17,10 @@ export type ServerTeamMemberData = {
     gender: string;
     personalEmail: string;
     phoneNumber: string;
-    recruitmentDate: any;
+    recruitmentDate: string;
     teamEmail: string;
-    terminationDate: any | null;
+    terminationDate: string | null;
     createdAt: string | null;
     updatedAt: string | null;
+    userId: number;
 };

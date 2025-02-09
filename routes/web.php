@@ -41,6 +41,7 @@ Route::middleware("auth")->name("team.")->prefix("team")->group(function () {
     Route::get("/members", [ServerTeamMemberController::class, "index"])->name("members.index")->breadcrumb("Serverteammitglieder");
     Route::get("/members/{member}", [ServerTeamMemberController::class, "show"])->name("members.show")->breadcrumb(fn(ServerTeamMember $member) => $member->nickname ?? "/", "team.members.index");
     Route::post("/members", [ServerTeamMemberController::class, "store"])->name("members.store");
+    Route::put("/members/{member}", [ServerTeamMemberController::class, "update"])->name("members.update");
 });
 
 Route::get("/imprint", function () {
