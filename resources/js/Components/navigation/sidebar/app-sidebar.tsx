@@ -14,9 +14,14 @@ import {
 import { User } from "@/types";
 import { Link } from "@inertiajs/react";
 import {
+    FaBookSkull,
+    FaGears,
+    FaGlobe,
     FaHammer,
     FaMap,
-    FaSpaghettiMonsterFlying,
+    FaServer,
+    FaSliders,
+    FaUserLock,
     FaUsers,
 } from "react-icons/fa6";
 
@@ -25,7 +30,7 @@ const data = {
         {
             title: "Serververwaltung",
             url: "#",
-            icon: FaUsers,
+            icon: FaServer,
             items: [
                 {
                     title: "Spielerverwaltung",
@@ -40,72 +45,78 @@ const data = {
                 {
                     title: "Settings",
                     url: "#",
-                    icon: FaSpaghettiMonsterFlying,
+                    icon: FaGears,
                 },
             ],
         },
         {
-            title: "Models",
+            title: "Teamverwaltung",
             url: "#",
-            icon: FaUsers,
+            icon: FaUserLock,
             items: [
                 {
-                    title: "Genesis",
+                    title: "Serverteammitglieder",
                     url: "#",
                 },
                 {
-                    title: "Explorer",
-                    url: "#",
-                },
-                {
-                    title: "Quantum",
+                    title: "Bewerbungen",
                     url: "#",
                 },
             ],
         },
         {
-            title: "Documentation",
+            title: "Dokumentation",
             url: "#",
-            icon: FaUsers,
+            icon: FaBookSkull,
             items: [
                 {
-                    title: "Introduction",
+                    title: "Willkommen",
                     url: "#",
                 },
                 {
-                    title: "Get Started",
+                    title: "Allgemeine Informationen",
                     url: "#",
                 },
                 {
-                    title: "Tutorials",
+                    title: "Verhaltensregeln",
                     url: "#",
                 },
                 {
-                    title: "Changelog",
+                    title: "Tickets",
+                    url: "#",
+                },
+                {
+                    title: "Informationen für Supporter",
+                    url: "#",
+                },
+                {
+                    title: "Informationen für Moderatoren",
+                    url: "#",
+                },
+                {
+                    title: "Informationen für Entwickler",
+                    url: "#",
+                },
+                {
+                    title: "Informationen für Builder",
                     url: "#",
                 },
             ],
         },
         {
-            title: "Settings",
+            title: "Web",
             url: "#",
-            icon: FaUsers,
+            icon: FaGlobe,
             items: [
                 {
-                    title: "General",
+                    title: "Benutzerverwaltung",
                     url: "#",
+                    icon: FaUsers,
                 },
                 {
-                    title: "Team",
+                    title: "Einstellungen",
                     url: "#",
-                },
-                {
-                    title: "Billing",
-                    url: "#",
-                },
-                {
-                    title: "Limits",
-                    url: "#",
+                    icon: FaSliders,
                 },
             ],
         },
