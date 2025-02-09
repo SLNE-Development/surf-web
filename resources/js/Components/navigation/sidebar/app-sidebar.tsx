@@ -13,27 +13,34 @@ import {
 } from "@/components/ui/sidebar";
 import { User } from "@/types";
 import { Link } from "@inertiajs/react";
-import { FaMap, FaUsers } from "react-icons/fa6";
+import {
+    FaHammer,
+    FaMap,
+    FaSpaghettiMonsterFlying,
+    FaUsers,
+} from "react-icons/fa6";
 
 const data = {
     navMain: [
         {
-            title: "Playground",
+            title: "Serververwaltung",
             url: "#",
             icon: FaUsers,
-            isActive: true,
             items: [
                 {
-                    title: "History",
+                    title: "Spielerverwaltung",
                     url: "#",
+                    icon: FaUsers,
                 },
                 {
-                    title: "Starred",
+                    title: "Bestrafungen",
                     url: "#",
+                    icon: FaHammer,
                 },
                 {
                     title: "Settings",
                     url: "#",
+                    icon: FaSpaghettiMonsterFlying,
                 },
             ],
         },
