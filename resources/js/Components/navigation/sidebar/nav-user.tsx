@@ -1,7 +1,5 @@
 "use client";
 
-import { ChevronsUpDown } from "lucide-react";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
     DropdownMenu,
@@ -20,7 +18,12 @@ import {
 } from "@/components/ui/sidebar";
 import { User } from "@/types";
 import { router } from "@inertiajs/react";
-import { FaArrowRightFromBracket, FaBell, FaUser } from "react-icons/fa6";
+import {
+    FaArrowRightFromBracket,
+    FaBell,
+    FaSort,
+    FaUser,
+} from "react-icons/fa6";
 
 export function NavUser({ user }: { user: User }) {
     const { isMobile } = useSidebar();
@@ -51,7 +54,7 @@ export function NavUser({ user }: { user: User }) {
                                     {user.email}
                                 </span>
                             </div>
-                            <ChevronsUpDown className="ml-auto size-4" />
+                            <FaSort className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent

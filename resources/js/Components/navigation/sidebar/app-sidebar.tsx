@@ -1,15 +1,3 @@
-import {
-    BookOpen,
-    Bot,
-    Frame,
-    LifeBuoy,
-    Map,
-    PieChart,
-    Send,
-    Settings2,
-    SquareTerminal,
-} from "lucide-react";
-
 import { NavMain } from "@/components/navigation/sidebar/nav-main";
 import { NavProjects } from "@/components/navigation/sidebar/nav-projects";
 import { NavSecondary } from "@/components/navigation/sidebar/nav-secondary";
@@ -25,13 +13,14 @@ import {
 } from "@/components/ui/sidebar";
 import { User } from "@/types";
 import { Link } from "@inertiajs/react";
+import { FaMap, FaUsers } from "react-icons/fa6";
 
 const data = {
     navMain: [
         {
             title: "Playground",
             url: "#",
-            icon: SquareTerminal,
+            icon: FaUsers,
             isActive: true,
             items: [
                 {
@@ -51,7 +40,7 @@ const data = {
         {
             title: "Models",
             url: "#",
-            icon: Bot,
+            icon: FaUsers,
             items: [
                 {
                     title: "Genesis",
@@ -70,7 +59,7 @@ const data = {
         {
             title: "Documentation",
             url: "#",
-            icon: BookOpen,
+            icon: FaUsers,
             items: [
                 {
                     title: "Introduction",
@@ -93,7 +82,7 @@ const data = {
         {
             title: "Settings",
             url: "#",
-            icon: Settings2,
+            icon: FaUsers,
             items: [
                 {
                     title: "General",
@@ -118,29 +107,29 @@ const data = {
         {
             title: "Support",
             url: "#",
-            icon: LifeBuoy,
+            icon: FaUsers,
         },
         {
             title: "Feedback",
             url: "#",
-            icon: Send,
+            icon: FaUsers,
         },
     ],
     projects: [
         {
             name: "Design Engineering",
             url: "#",
-            icon: Frame,
+            icon: FaUsers,
         },
         {
             name: "Sales & Marketing",
             url: "#",
-            icon: PieChart,
+            icon: FaUsers,
         },
         {
             name: "Travel",
             url: "#",
-            icon: Map,
+            icon: FaMap,
         },
     ],
 };
