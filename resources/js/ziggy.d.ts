@@ -11,6 +11,8 @@ declare module 'ziggy-js' {
             "binding": "uuid"
         }
     ],
+    "imprint": [],
+    "privacy": [],
     "register": [],
     "login": [],
     "password.request": [],

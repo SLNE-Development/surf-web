@@ -30,7 +30,7 @@ export function NavProjects({
 
     return (
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
+            <SidebarGroupLabel>Projekte</SidebarGroupLabel>
             <SidebarMenu>
                 {projects.map((item) => (
                     <SidebarMenuItem key={item.name}>
@@ -44,7 +44,7 @@ export function NavProjects({
                             <DropdownMenuTrigger asChild>
                                 <SidebarMenuAction showOnHover>
                                     <FaEllipsis />
-                                    <span className="sr-only">More</span>
+                                    <span className="sr-only">Mehr</span>
                                 </SidebarMenuAction>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
@@ -72,7 +72,7 @@ export function NavProjects({
                 <SidebarMenuItem>
                     <SidebarMenuButton>
                         <FaEllipsis />
-                        <span>More</span>
+                        <span>Mehr</span>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>

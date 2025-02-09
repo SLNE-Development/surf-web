@@ -15,13 +15,19 @@ import { User } from "@/types/helper-types";
 import { Link } from "@inertiajs/react";
 import {
     FaBookSkull,
+    FaBugSlash,
+    FaFeather,
     FaGears,
     FaGlobe,
     FaHammer,
-    FaMap,
+    FaHouseChimneyUser,
+    FaLifeRing,
+    FaPeopleGroup,
+    FaRegLifeRing,
+    FaScroll,
     FaServer,
     FaSliders,
-    FaUserLock,
+    FaTicket,
     FaUsers,
 } from "react-icons/fa6";
 
@@ -51,17 +57,24 @@ const data = {
             ],
         },
         {
+            title: "Ticketverwaltung",
+            url: "#",
+            icon: FaTicket,
+        },
+        {
             title: "Teamverwaltung",
             url: "#",
-            icon: FaUserLock,
+            icon: FaPeopleGroup,
             items: [
                 {
                     title: "Serverteammitglieder",
                     url: "#",
+                    icon: FaFeather,
                 },
                 {
                     title: "Bewerbungen",
                     url: "#",
+                    icon: FaScroll,
                 },
             ],
         },
@@ -124,31 +137,31 @@ const data = {
     ],
     navSecondary: [
         {
-            title: "Support",
+            title: "Hilfe",
             url: "#",
-            icon: FaUsers,
+            icon: FaRegLifeRing,
         },
         {
-            title: "Feedback",
+            title: "Bugreport",
             url: "#",
-            icon: FaUsers,
+            icon: FaBugSlash,
         },
     ],
     projects: [
         {
-            name: "Design Engineering",
+            name: "Community Server",
             url: "#",
-            icon: FaUsers,
+            icon: FaHouseChimneyUser,
         },
         {
-            name: "Sales & Marketing",
+            name: "Event Server",
             url: "#",
-            icon: FaUsers,
+            icon: FaPeopleGroup,
         },
         {
-            name: "Travel",
+            name: "Arty Support",
             url: "#",
-            icon: FaMap,
+            icon: FaLifeRing,
         },
     ],
 };
@@ -190,6 +203,14 @@ export function AppSidebar({ user }: { user: User }) {
             </SidebarContent>
             <SidebarFooter>
                 <NavUser user={user} />
+                <div className="flex flex-row gap-1 justify-around">
+                    <Link href={route("imprint")} className="text-xs">
+                        Impressum
+                    </Link>
+                    <Link href={route("privacy")} className="text-xs">
+                        Datenschutz
+                    </Link>
+                </div>
             </SidebarFooter>
         </Sidebar>
     );

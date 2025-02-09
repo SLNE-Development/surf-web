@@ -35,4 +35,12 @@ Route::middleware("auth")->name("core.")->prefix("core")->group(function () {
     Route::get("/users/{user}", [CoreUserController::class, "show"])->name("users.show")->breadcrumb(fn(CoreUser $user) => $user->last_name ?? "/", "core.users.index");
 });
 
+Route::get("/imprint", function () {
+    return "Impressum";
+})->name("imprint")->breadcrumb("Impressum");
+
+Route::get("/privacy", function () {
+    return "Datenschutz";
+})->name("privacy")->breadcrumb("Datenschutz");
+
 require __DIR__ . '/auth.php';
