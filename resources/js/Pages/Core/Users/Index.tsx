@@ -20,7 +20,8 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import { CoreUser, PaginatedModel } from "@/types";
+import { CoreUserData } from "@/types";
+import { PaginatedModel } from "@/types/helper-types";
 import { Head, Link, router } from "@inertiajs/react";
 import { FormEventHandler, useState } from "react";
 import { FaEye } from "react-icons/fa6";
@@ -29,7 +30,7 @@ export default function CoreUserIndexPage({
     users,
     query,
 }: {
-    users: PaginatedModel<CoreUser>;
+    users: PaginatedModel<CoreUserData>;
     query: string;
 }) {
     const [search, setSearch] = useState(query ?? "");
@@ -92,7 +93,7 @@ export default function CoreUserIndexPage({
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {users.data.map((user) => (
+                            {users.data.map((user: any) => (
                                 <TableRow key={user.id}>
                                     <TableCell>
                                         <div className="size-8">

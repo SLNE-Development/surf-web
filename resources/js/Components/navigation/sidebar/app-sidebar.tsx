@@ -11,7 +11,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { User } from "@/types";
+import { User } from "@/types/helper-types";
 import { Link } from "@inertiajs/react";
 import {
     FaBookSkull,
@@ -36,6 +36,7 @@ const data = {
                     title: "Spielerverwaltung",
                     url: route("core.users.index"),
                     icon: FaUsers,
+                    active: route().current("core.users.*"),
                 },
                 {
                     title: "Bestrafungen",

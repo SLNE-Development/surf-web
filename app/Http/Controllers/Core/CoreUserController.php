@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Core;
 
+use App\Data\Core\CoreUserData;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Core\CoreUserResource;
 use App\Models\Core\CoreUser;
@@ -20,7 +21,7 @@ class CoreUserController extends Controller
             ->orWhere("uuid", $query)->paginate(100)->withQueryString();
 
         return Inertia::render('Core/Users/Index', [
-            'users' => CoreUserResource::collection($users),
+            'users' => CoreUserData::collect($users),
             'query' => $query,
         ]);
     }

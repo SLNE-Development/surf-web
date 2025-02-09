@@ -31,6 +31,7 @@ export function NavMain({
             title: string;
             url: string;
             icon?: IconType;
+            active?: boolean;
         }[];
     }[];
 }) {
@@ -76,6 +77,9 @@ export function NavMain({
                                                     >
                                                         <SidebarMenuSubButton
                                                             asChild
+                                                            isActive={
+                                                                subItem.active
+                                                            }
                                                         >
                                                             <a
                                                                 href={

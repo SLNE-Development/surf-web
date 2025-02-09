@@ -8,22 +8,24 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
-import { PaginatedModel } from "@/types";
+import { PaginatedModel } from "@/types/helper-types";
 
 export function DefaultPagination<T>({ model }: { model: PaginatedModel<T> }) {
-    const paginationLinksWithoutFirstAndLast = model.meta.links.slice(
+    const paginationLinksWithoutFirstAndLast = model.links.slice(
         1,
-        model.meta.links.length - 1
+        model.links.length - 1
     );
 
     return (
         <Pagination>
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationFirst href={model.links.first ?? undefined} />
+                    <PaginationFirst href={model.first_page_url ?? undefined} />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationPrevious href={model.links.prev ?? undefined} />
+                    <PaginationPrevious
+                        href={model.prev_page_url ?? undefined}
+                    />
                 </PaginationItem>
                 {paginationLinksWithoutFirstAndLast.map((link) => (
                     <PaginationItem key={link.url}>
@@ -36,10 +38,10 @@ export function DefaultPagination<T>({ model }: { model: PaginatedModel<T> }) {
                     </PaginationItem>
                 ))}
                 <PaginationItem>
-                    <PaginationNext href={model.links.next ?? undefined} />
+                    <PaginationNext href={model.next_page_url ?? undefined} />
                 </PaginationItem>
                 <PaginationItem>
-                    <PaginationLast href={model.links.last ?? undefined} />
+                    <PaginationLast href={model.last_page_url ?? undefined} />
                 </PaginationItem>
             </PaginationContent>
         </Pagination>
