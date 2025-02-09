@@ -6,18 +6,11 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { DefaultPagination } from "@/components/ui/default-pagination";
 import { Input } from "@/components/ui/input";
 import { InputDescription } from "@/components/ui/input-description";
 import { InputGroup } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
-import {
-    Pagination,
-    PaginationContent,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from "@/components/ui/pagination";
 import {
     Table,
     TableBody,
@@ -39,10 +32,6 @@ export default function CoreUserIndexPage({
     users: PaginatedModel<CoreUser>;
     query: string;
 }) {
-    const paginationLinksWithoutFirstAndLast = users.meta.links.slice(
-        1,
-        users.meta.links.length - 1
-    );
     const [search, setSearch] = useState(query ?? "");
 
     const submit: FormEventHandler = (e) => {
@@ -136,31 +125,7 @@ export default function CoreUserIndexPage({
                             ))}
                         </TableBody>
                     </Table>
-
-                    <Pagination>
-                        <PaginationContent>
-                            <PaginationItem>
-                                <PaginationPrevious
-                                    href={users.links.prev ?? undefined}
-                                />
-                            </PaginationItem>
-                            {paginationLinksWithoutFirstAndLast.map((link) => (
-                                <PaginationItem key={link.url}>
-                                    <PaginationLink
-                                        isActive={link.active}
-                                        href={link.url ?? undefined}
-                                    >
-                                        {link.label}
-                                    </PaginationLink>
-                                </PaginationItem>
-                            ))}
-                            <PaginationItem>
-                                <PaginationNext
-                                    href={users.links.next ?? undefined}
-                                />
-                            </PaginationItem>
-                        </PaginationContent>
-                    </Pagination>
+                    <DefaultPagination model={users} />
                 </CardContent>
             </Card>
         </AuthenticatedLayout>
