@@ -4,6 +4,7 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbList,
+    BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -35,13 +36,17 @@ export default function Authenticated({ children }: PropsWithChildren<{}>) {
                             />
                             <Breadcrumb>
                                 <BreadcrumbList>
-                                    {breadcrumbs.map((breadcrumb) => (
+                                    {breadcrumbs.map((breadcrumb, index) => (
                                         <BreadcrumbItem key={breadcrumb.title}>
                                             <BreadcrumbLink
                                                 href={breadcrumb.url}
                                             >
                                                 {breadcrumb.title}
                                             </BreadcrumbLink>
+
+                                            {index < breadcrumbs.length - 1 && (
+                                                <BreadcrumbSeparator />
+                                            )}
                                         </BreadcrumbItem>
                                     ))}
                                 </BreadcrumbList>
