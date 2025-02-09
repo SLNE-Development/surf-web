@@ -11,6 +11,14 @@ declare module 'ziggy-js' {
             "binding": "uuid"
         }
     ],
+    "team.members.index": [],
+    "team.members.show": [
+        {
+            "name": "member",
+            "required": true
+        }
+    ],
+    "team.members.store": [],
     "imprint": [],
     "privacy": [],
     "register": [],

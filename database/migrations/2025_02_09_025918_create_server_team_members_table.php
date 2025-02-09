@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string("team_email")->unique();
             $table->date("termination_date")->nullable();
 
-            $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
+            $table->foreignId("user_id")->unique()->constrained("users")->onDelete("cascade");
             $table->datetimes();
         });
     }

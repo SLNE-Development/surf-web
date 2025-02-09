@@ -20,8 +20,6 @@ class UserResource extends JsonResource
             'email' => $this->email,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
-
-            "attached_tickets" => TicketResource::collection($this->whenLoaded('attachedTickets')),
         ];
     }
 }

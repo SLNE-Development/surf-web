@@ -18,6 +18,11 @@ class ServerTeamMember extends Model
         "phone_number",
         "recruitment_date",
         "team_email",
+        "termination_date",
+        "user_id"
+    ];
+
+    protected $nullable = [
         "termination_date"
     ];
 

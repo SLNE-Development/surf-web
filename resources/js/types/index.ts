@@ -7,3 +7,19 @@ export type CoreUserData = {
     created_at: string | null;
     updated_at: string | null;
 };
+export type ServerTeamMemberData = {
+    id: number;
+    nickname: string;
+    discordId: string;
+    minecraftUuid: string;
+    dateOfBirth: string;
+    firstName: string;
+    gender: string;
+    personalEmail: string;
+    phoneNumber: string;
+    recruitmentDate: any;
+    teamEmail: string;
+    terminationDate: any | null;
+    createdAt: string | null;
+    updatedAt: string | null;
+};

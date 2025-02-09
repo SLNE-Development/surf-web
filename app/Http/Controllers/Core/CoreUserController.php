@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Core;
 
 use App\Data\Core\CoreUserData;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Core\CoreUserResource;
 use App\Models\Core\CoreUser;
 use Illuminate\Http\Request;
 use Inertia\Inertia;

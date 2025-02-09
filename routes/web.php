@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Core\CoreUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Team\Team\ServerTeamMemberController;
 use App\Http\Resources\TicketResource;
 use App\Http\Resources\UserResource;
 use App\Models\Core\CoreUser;
+use App\Models\Team\Member\ServerTeamMember;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Foundation\Application;
@@ -33,6 +35,12 @@ Route::get('/dashboard', function () {
 Route::middleware("auth")->name("core.")->prefix("core")->group(function () {
     Route::get("/users", [CoreUserController::class, "index"])->name("users.index")->breadcrumb("Spielerverwaltung");
     Route::get("/users/{user}", [CoreUserController::class, "show"])->name("users.show")->breadcrumb(fn(CoreUser $user) => $user->last_name ?? "/", "core.users.index");
+});
+
+Route::middleware("auth")->name("team.")->prefix("team")->group(function () {
+    Route::get("/members", [ServerTeamMemberController::class, "index"])->name("members.index")->breadcrumb("Serverteammitglieder");
+    Route::get("/members/{member}", [ServerTeamMemberController::class, "show"])->name("members.show")->breadcrumb(fn(ServerTeamMember $member) => $member->nickname ?? "/", "team.members.index");
+    Route::post("/members", [ServerTeamMemberController::class, "store"])->name("members.store");
 });
 
 Route::get("/imprint", function () {

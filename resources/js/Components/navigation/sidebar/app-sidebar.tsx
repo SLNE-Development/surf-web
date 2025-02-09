@@ -68,7 +68,7 @@ const data = {
             items: [
                 {
                     title: "Serverteammitglieder",
-                    url: "#",
+                    url: route("team.members.index"),
                     icon: FaFeather,
                 },
                 {
