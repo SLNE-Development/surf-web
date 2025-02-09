@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Core\CoreUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Resources\TicketResource;
 use App\Http\Resources\UserResource;
+use App\Models\Core\CoreUser;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Foundation\Application;
@@ -28,44 +30,9 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard')->breadcrumb("Dashboard");
 
-Route::post("/users/{user}", function (Request $request, User $user) {
-    $data = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255',
-    ]);
-
-    $user->update($data);
-
-    return redirect()->route('dashboard')->with('success', 'User updated.');
-})->middleware(['auth', 'verified'])->name('users.update');
-
-Route::get("/api/tickets/search", function (Request $request) {
-    $query = $request->query('query');
-    $searchedTickets = [];
-
-    if (Str::length($query) >= 3) {
-        $searchedTickets = Ticket::where('title', 'like', "%$query%")->get();
-    }
-
-    return TicketResource::collection($searchedTickets);
-})->middleware(['auth', 'verified'])->name('tickets.search');
-
-Route::post("/users/{user}/ticket", function (Request $request, User $user) {
-    $toAttach = User::find($request->input('ticket_id'));
-
-    if (!$toAttach) {
-        return redirect()->route('dashboard')->with('error', 'Ticket not found.');
-    }
-
-    $user->attachedTickets()->attach($toAttach);
-
-    return UserResource::make($user);
-})->middleware(['auth', 'verified'])->name('users.addTicket');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit')->breadcrumb("Profil");
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware("auth")->name("core.")->prefix("core")->group(function () {
+    Route::get("/users", [CoreUserController::class, "index"])->name("users.index")->breadcrumb("Spielerverwaltung");
+    Route::get("/users/{user}", [CoreUserController::class, "show"])->name("users.show")->breadcrumb(fn(CoreUser $user) => $user->last_name ?? "/", "core.users.index");
 });
 
 require __DIR__ . '/auth.php';

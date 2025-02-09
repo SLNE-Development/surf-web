@@ -3,24 +3,14 @@ declare module 'ziggy-js' {
   interface RouteList {
     "sanctum.csrf-cookie": [],
     "dashboard": [],
-    "users.update": [
+    "core.users.index": [],
+    "core.users.show": [
         {
             "name": "user",
             "required": true,
-            "binding": "id"
+            "binding": "uuid"
         }
     ],
-    "tickets.search": [],
-    "users.addTicket": [
-        {
-            "name": "user",
-            "required": true,
-            "binding": "id"
-        }
-    ],
-    "profile.edit": [],
-    "profile.update": [],
-    "profile.destroy": [],
     "register": [],
     "login": [],
     "password.request": [],
@@ -32,6 +22,9 @@ declare module 'ziggy-js' {
         }
     ],
     "password.store": [],
+    "profile.edit": [],
+    "profile.update": [],
+    "profile.destroy": [],
     "verification.notice": [],
     "verification.verify": [
         {
