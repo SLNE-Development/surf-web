@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/table";
 import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
 import AddTicketDialog, { Ticket } from "@/pages/AddLike";
+import { PaginatedModel } from "@/types";
 import { Head, useForm } from "@inertiajs/react";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -49,33 +50,7 @@ export type User = {
     attached_tickets: Ticket[];
 };
 
-export default function Dashboard({
-    users,
-}: {
-    users: {
-        data: User[];
-        links: {
-            first: string;
-            last: string;
-            prev: string | null;
-            next: string | null;
-        };
-        meta: {
-            current_page: number;
-            last_page: number;
-            path: string;
-            per_page: number;
-            from: number;
-            to: number;
-            total: number;
-            links: {
-                url: string | null;
-                label: string;
-                active: boolean;
-            }[];
-        };
-    };
-}) {
+export default function Dashboard({ users }: { users: PaginatedModel<User> }) {
     const paginationLinksWithoutFirstAndLast = users.meta.links.slice(
         1,
         users.meta.links.length - 1
