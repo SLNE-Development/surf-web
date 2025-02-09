@@ -140,7 +140,7 @@ export function AppSidebar({ user }: { user: User }) {
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="2xl" asChild>
+                        <SidebarMenuButton size="xl" asChild>
                             <Link
                                 href={route("dashboard")}
                                 className="flex flex-row"
@@ -151,13 +151,13 @@ export function AppSidebar({ user }: { user: User }) {
                                         alt="Logo"
                                     />
                                 </div>
-                                <div className="flex flex-col text-sm">
+                                <div className="flex flex-col text-lg">
                                     <div className="truncate font-semibold">
                                         Arty Support
                                     </div>
-                                    <div className="truncate text-[0.6rem]">
+                                    {/* <div className="truncate text-[0.6rem]">
                                         SLNE Development
-                                    </div>
+                                    </div> */}
                                 </div>
                             </Link>
                         </SidebarMenuButton>
