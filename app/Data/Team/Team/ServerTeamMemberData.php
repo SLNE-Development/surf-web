@@ -2,8 +2,10 @@
 
 namespace App\Data\Team\Team;
 
+use App\Data\Web\UserData;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
+use Spatie\LaravelData\Attributes\LoadRelation;
 use Spatie\LaravelData\Data;
 
 class ServerTeamMemberData extends Data
@@ -24,6 +26,11 @@ class ServerTeamMemberData extends Data
         public ?CarbonImmutable $createdAt,
         public ?CarbonImmutable $updatedAt,
 
-        public ?int $userId,
+        #[LoadRelation]
+        public UserData $user,
+
+        /** @var array<ServerTeamMemberValuationData> */
+        #[LoadRelation]
+        public array $valuations,
     ) {}
 }

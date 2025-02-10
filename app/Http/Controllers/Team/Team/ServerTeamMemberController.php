@@ -33,7 +33,13 @@ class ServerTeamMemberController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ServerTeamMember $user) {}
+    public function show(ServerTeamMember $member)
+    {
+        return Inertia::render('Team/Team/Show', [
+            'member' => ServerTeamMemberData::from($member),
+            "users" => UserResource::collection(User::all()),
+        ]);
+    }
 
     public function store(StoreServerTeamMemberRequest $request)
     {

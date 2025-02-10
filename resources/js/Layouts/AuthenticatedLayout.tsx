@@ -37,17 +37,22 @@ export default function Authenticated({ children }: PropsWithChildren<{}>) {
                             <Breadcrumb>
                                 <BreadcrumbList>
                                     {breadcrumbs.map((breadcrumb, index) => (
-                                        <BreadcrumbItem key={breadcrumb.title}>
-                                            <BreadcrumbLink
-                                                href={breadcrumb.url}
-                                            >
-                                                {breadcrumb.title}
-                                            </BreadcrumbLink>
+                                        <div
+                                            key={breadcrumb.title}
+                                            className="flex items-center gap-1.5"
+                                        >
+                                            <BreadcrumbItem>
+                                                <BreadcrumbLink
+                                                    href={breadcrumb.url}
+                                                >
+                                                    {breadcrumb.title}
+                                                </BreadcrumbLink>
+                                            </BreadcrumbItem>
 
                                             {index < breadcrumbs.length - 1 && (
                                                 <BreadcrumbSeparator />
                                             )}
-                                        </BreadcrumbItem>
+                                        </div>
                                     ))}
                                 </BreadcrumbList>
                             </Breadcrumb>

@@ -3,7 +3,5 @@ export function InputError({ errorMessage }: { errorMessage?: string }) {
         return null;
     }
 
-    return (
-        <p className="text-sm font-medium text-destructive">{errorMessage}</p>
-    );
+    return <p className="text-sm font-medium text-danger">{errorMessage}</p>;
 }

@@ -22,5 +22,25 @@ export type ServerTeamMemberData = {
     terminationDate: string | null;
     createdAt: string | null;
     updatedAt: string | null;
-    userId: number;
+    user: UserData;
+    valuations: Array<ServerTeamMemberValuationData>;
+};
+export type ServerTeamMemberValuationData = {
+    id: number;
+    valuation: string;
+    comment: string;
+    serverTeamMemberId: number;
+    valuatedById: number;
+    createdAt: string | null;
+    updatedAt: string | null;
+    valuatedBy: UserData;
+};
+export type UserData = {
+    id: number;
+    name: string;
+    email: string;
+    avatar: string | null;
+    emailVerifiedAt: string | null;
+    createdAt: string | null;
+    updatedAt: string | null;
 };

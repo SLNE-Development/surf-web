@@ -15,7 +15,8 @@ declare module 'ziggy-js' {
     "team.members.show": [
         {
             "name": "member",
-            "required": true
+            "required": true,
+            "binding": "id"
         }
     ],
     "team.members.store": [],

@@ -35,7 +35,7 @@ export function EditServerTeamMember({
     member: ServerTeamMemberData;
 }) {
     const [dialogOpen, setDialogOpen] = useState(false);
-    const { data, setData, processing, errors, put, reset } = useForm<{
+    const { data, setData, processing, errors, put } = useForm<{
         nickname: string;
         discord_id: string;
         minecraft_uuid: string;
@@ -58,7 +58,7 @@ export function EditServerTeamMember({
         phone_number: member.phoneNumber,
         recruitment_date: member.recruitmentDate,
         team_email: member.teamEmail,
-        user_id: member.userId,
+        user_id: member.user?.id ?? 0,
     });
 
     function submit() {
