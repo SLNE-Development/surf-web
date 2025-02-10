@@ -1,4 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { WysiwygEditor } from "@/components/ui/wysiwyg";
 import Authenticated from "@/layouts/AuthenticatedLayout";
 import { User } from "@/pages/Dashboard";
 import { ServerTeamMemberValuationTab } from "@/pages/Team/Team/components/show/valuation-tab";
@@ -16,12 +17,14 @@ export default function ShowServerTeamMemberPage({
         <Authenticated>
             <Head title={`${member.nickname}`} />
 
-            <Tabs defaultValue="valuations">
+            <Tabs defaultValue="profile">
                 <TabsList>
                     <TabsTrigger value="profile">Profile</TabsTrigger>
                     <TabsTrigger value="valuations">Bewertungen</TabsTrigger>
                 </TabsList>
-                <TabsContent value="profile">Profile</TabsContent>
+                <TabsContent value="profile">
+                    <WysiwygEditor setMarkdown={console.log} markdown="" />
+                </TabsContent>
                 <ServerTeamMemberValuationTab member={member} />
             </Tabs>
         </Authenticated>
