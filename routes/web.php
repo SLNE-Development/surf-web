@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $users = User::with("attachedTickets")->paginate(perPage: 10);
+    $users = User::paginate(perPage: 10);
 
     return Inertia::render('Dashboard', [
         "users" => UserResource::collection($users),
