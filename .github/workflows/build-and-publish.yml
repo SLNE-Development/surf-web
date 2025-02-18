@@ -17,23 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Cache composer and npm dependencies
-      - name: Cache Composer dependencies
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            composer-
-
-      - name: Cache npm dependencies
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-
-
       # Setup PHP
       - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
         with:
