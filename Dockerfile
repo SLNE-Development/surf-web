@@ -5,7 +5,7 @@ RUN apt-get update -y && apt-get install -y openssl zip unzip git curl
 
 # Install PHP Extensions
 RUN apt-get install -y libonig-dev libpq-dev
-RUN docker-php-ext-install pdo mbstring pdo_mysql
+RUN docker-php-ext-install pdo mbstring pdo_mysql bz2 intl curl gd mbstring gettext fileinfo exif zip ctype dom filter hash openssl pcre session tokenizer xml
 
 # Set Working Directory
 WORKDIR /app
