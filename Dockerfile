@@ -1,7 +1,7 @@
 FROM php:8.2
 
 # Update Container
-RUN apt-get update -y && apt-get install -y openssl zip unzip git
+RUN apt-get update -y && apt-get install -y openssl zip unzip git curl
 
 # Get Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -17,8 +17,9 @@ COPY . /app
 # Install Composer Dependencies
 RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
 
-# Install NPM
-RUN apt-get install -y npm
+# Install NodeJS
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
 
 # Install NPM Dependencies
 RUN npm install
