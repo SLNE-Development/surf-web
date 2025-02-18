@@ -14,19 +14,6 @@ RUN docker-php-ext-install pdo mbstring pdo_mysql
 WORKDIR /app
 COPY . /app
 
-# Install Composer Dependencies
-RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
-
-# Install NodeJS
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-RUN apt-get install -y nodejs
-
-# Install NPM Dependencies
-RUN npm install
-
-# Build NPM
-RUN npm run build
-
 # Run Server
 CMD php artisan serve --host=0.0.0.0 --port=8000
 
