@@ -85,6 +85,7 @@ jobs:
           name: laravel-app
 
   publish:
+    needs: build-and-test
     runs-on: ubuntu-latest
 
     permissions:
