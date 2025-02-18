@@ -3,8 +3,6 @@ name: Laravel
 on:
   push:
     branches: ["master"]
-  pull_request:
-    branches: ["master"]
 
 jobs:
   laravel-tests:
@@ -74,3 +72,9 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: php artisan test
+
+      # Publish Artifact for later use
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: laravel-app
