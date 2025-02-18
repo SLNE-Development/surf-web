@@ -16,7 +16,7 @@ import {
     SidebarMenuItem,
     useSidebar,
 } from "@/components/ui/sidebar";
-import { User } from "@/types";
+import { User } from "@/types/helper-types";
 import { router } from "@inertiajs/react";
 import { useTheme } from "next-themes";
 import {
