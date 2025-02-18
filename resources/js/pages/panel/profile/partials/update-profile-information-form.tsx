@@ -3,18 +3,19 @@ import { Input } from "@/components/ui/input";
 import { InputError } from "@/components/ui/input-error";
 import { InputGroup } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
+import { PageProps } from "@/types/helper-types";
 import { useForm, usePage } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 import { toast } from "sonner";
 
-export default function UpdateProfileInformation({
+export default function UpdateProfileInformationForm({
     mustVerifyEmail,
     status,
 }: {
     mustVerifyEmail: boolean;
     status?: string;
 }) {
-    const user = usePage().props.auth.user;
+    const user = usePage<PageProps>().props.auth.user;
 
     const { data, setData, patch, errors, processing } = useForm({
         name: user.name,

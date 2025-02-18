@@ -19,12 +19,11 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import { User } from "@/pages/Dashboard";
-import { CreateServerTeamMember } from "@/pages/Team/Team/Create";
-import { EditServerTeamMember } from "@/pages/Team/Team/Edit";
+import AuthenticatedLayout from "@/layouts/authenticated-layout";
+import { CreateServerTeamMember } from "@/pages/panel/team/team/create";
+import { EditServerTeamMember } from "@/pages/panel/team/team/edit";
 import { ServerTeamMemberData } from "@/types";
-import { PaginatedModel } from "@/types/helper-types";
+import { PaginatedModel, User } from "@/types/helper-types";
 import { Head, Link, router } from "@inertiajs/react";
 import { FormEventHandler, useState } from "react";
 import { FaEye } from "react-icons/fa6";

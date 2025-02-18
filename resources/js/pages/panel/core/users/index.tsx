@@ -19,7 +19,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
+import AuthenticatedLayout from "@/layouts/authenticated-layout";
 import { CoreUserData } from "@/types";
 import { PaginatedModel } from "@/types/helper-types";
 import { Head, Link, router } from "@inertiajs/react";

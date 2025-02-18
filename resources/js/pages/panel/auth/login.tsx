@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { InputError } from "@/components/ui/input-error";
 import { InputGroup } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
-import GuestLayout from "@/layouts/GuestLayout";
+import GuestLayout from "@/layouts/guest-layout";
 import { Head, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 

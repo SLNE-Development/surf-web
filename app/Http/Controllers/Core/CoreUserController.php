@@ -19,7 +19,7 @@ class CoreUserController extends Controller
         $users = CoreUser::where("last_name", "LIKE", "%$query%")
             ->orWhere("uuid", $query)->paginate(100)->withQueryString();
 
-        return Inertia::render('Core/Users/Index', [
+        return Inertia::render('panel/core/users/index', [
             'users' => CoreUserData::collect($users),
             'query' => $query,
         ]);

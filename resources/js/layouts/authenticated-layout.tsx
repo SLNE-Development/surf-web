@@ -17,7 +17,9 @@ import { usePage } from "@inertiajs/react";
 import { ThemeProvider } from "next-themes";
 import { PropsWithChildren } from "react";
 
-export default function Authenticated({ children }: PropsWithChildren<{}>) {
+export default function AuthenticatedLayout({
+    children,
+}: PropsWithChildren<{}>) {
     const page = usePage<PageProps>().props;
     const user = page.auth.user;
     const breadcrumbs = page.breadcrumbs;

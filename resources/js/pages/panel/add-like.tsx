@@ -17,7 +17,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { User } from "@/pages/Dashboard";
+import { User } from "@/types/helper-types";
 import { router } from "@inertiajs/react";
 import axios from "axios";
 import { debounce } from "lodash";

@@ -23,7 +23,7 @@ class ServerTeamMemberController extends Controller
         $members = ServerTeamMember::where("nickname", "LIKE", "%$query%")->paginate(100)->withQueryString();
         $users = User::all();
 
-        return Inertia::render('Team/Team/Index', [
+        return Inertia::render('panel/team/team/index', [
             'members' => ServerTeamMemberData::collect($members),
             "users" => UserResource::collection($users),
             'query' => $query,
@@ -35,7 +35,7 @@ class ServerTeamMemberController extends Controller
      */
     public function show(ServerTeamMember $member)
     {
-        return Inertia::render('Team/Team/Show', [
+        return Inertia::render('panel/team/team/show', [
             'member' => ServerTeamMemberData::from($member),
             "users" => UserResource::collection(User::all()),
         ]);

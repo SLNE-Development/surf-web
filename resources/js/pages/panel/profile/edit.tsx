@@ -5,11 +5,11 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import AuthenticatedLayout from "@/layouts/AuthenticatedLayout";
-import { PageProps } from "@/types";
+import AuthenticatedLayout from "@/layouts/authenticated-layout";
+import UpdatePasswordForm from "@/pages/panel/profile/partials/update-password-form";
+import UpdateProfileInformationForm from "@/pages/panel/profile/partials/update-profile-information-form";
+import { PageProps } from "@/types/helper-types";
 import { Head } from "@inertiajs/react";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
-import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 
 export default function Edit({
     mustVerifyEmail,

@@ -1,9 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WysiwygEditor } from "@/components/ui/wysiwyg";
-import Authenticated from "@/layouts/AuthenticatedLayout";
-import { User } from "@/pages/Dashboard";
-import { ServerTeamMemberValuationTab } from "@/pages/Team/Team/components/show/valuation-tab";
+import AuthenticatedLayout from "@/layouts/authenticated-layout";
+import { ServerTeamMemberValuationTab } from "@/pages/panel/team/team/components/show/valuation-tab";
 import { ServerTeamMemberData } from "@/types";
+import { User } from "@/types/helper-types";
 import { Head } from "@inertiajs/react";
 
 export default function ShowServerTeamMemberPage({
@@ -14,7 +14,7 @@ export default function ShowServerTeamMemberPage({
     users: User[];
 }) {
     return (
-        <Authenticated>
+        <AuthenticatedLayout>
             <Head title={`${member.nickname}`} />
 
             <Tabs defaultValue="profile">
@@ -27,6 +27,6 @@ export default function ShowServerTeamMemberPage({
                 </TabsContent>
                 <ServerTeamMemberValuationTab member={member} />
             </Tabs>
-        </Authenticated>
+        </AuthenticatedLayout>
     );
 }
