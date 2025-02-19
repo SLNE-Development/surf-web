@@ -1,7 +1,7 @@
 FROM php:8.2
 
 # Update Container
-RUN apt-get update -y && apt-get install -y openssl zip unzip git curl libbz2-dev libicu-dev libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev libzip-dev libpq-dev libcurl
+RUN apt-get update -y && apt-get install -y openssl zip unzip git curl libbz2-dev libicu-dev libpng-dev libjpeg-dev libfreetype6-dev libonig-dev libxml2-dev libzip-dev libpq-dev libcurl4-openssl-dev libssl-dev
 
 # Install PHP Extensions
 RUN apt-get install -y libonig-dev libpq-dev
