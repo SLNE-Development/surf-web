@@ -126,5 +126,5 @@ jobs:
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
 
       # Build docker image
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      # - name: Build the Docker image
+      #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
