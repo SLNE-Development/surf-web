@@ -19,7 +19,6 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install ctype
 RUN docker-php-ext-install dom
 RUN docker-php-ext-install session
-RUN docker-php-ext-install tokenizer
 RUN docker-php-ext-install xml
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
