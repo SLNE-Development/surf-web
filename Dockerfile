@@ -19,7 +19,6 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install ctype
 RUN docker-php-ext-install dom
 RUN docker-php-ext-install filter
-RUN docker-php-ext-install hash
 RUN docker-php-ext-install openssl
 RUN docker-php-ext-install pcre
 RUN docker-php-ext-install session
