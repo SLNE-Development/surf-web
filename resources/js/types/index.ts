@@ -1,3 +1,19 @@
+export type BlogMetaData = {
+    title: string;
+    description: string;
+    image: string;
+};
+export type BlogPostData = {
+    id: number;
+    permalink: string;
+    slug: string;
+    title: string;
+    content: string;
+    blog_type: string;
+    created_at: string;
+    updated_at: string;
+    meta: BlogMetaData;
+};
 export type CoreUserData = {
     id: number;
     uuid: string;

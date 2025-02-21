@@ -58,6 +58,13 @@ declare module 'ziggy-js' {
     "password.confirm": [],
     "password.update": [],
     "logout": [],
+    "blog.index": [],
+    "blog.show": [
+        {
+            "name": "slugOrPermaLink",
+            "required": true
+        }
+    ],
     "storage.local": [
         {
             "name": "path",
