@@ -34,11 +34,8 @@ jobs:
 
       - name: Install NPM Dependencies
         run: npm install
-
-      - name: Build Assets
-        run: npm run build
-
-      # Prepare php test environment
+        
+      # Prepare php environment
       - name: Generate key
         run: php artisan key:generate
 
@@ -50,6 +47,10 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
           php artisan migrate
+
+      # Build assets and transformers
+      - name: Build Assets
+        run: npm run build
 
       # Execute tests
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
