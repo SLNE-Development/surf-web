@@ -49,6 +49,7 @@ jobs:
         run: |
           mkdir -p database
           touch database/database.sqlite
+          php artisan migrate
 
       # Execute tests
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
