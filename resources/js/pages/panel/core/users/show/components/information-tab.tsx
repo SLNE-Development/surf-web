@@ -25,7 +25,7 @@ export default function CoreUserShowInformationTab({user}: { user: CoreUserData 
                     <CardDescription>Allgemeine Informationen über den Benutzer</CardDescription>
                 </CardHeader>
                 <CardContent className={"flex flex-col lg:flex-row gap-4"}>
-                    <div className={"flex flex-col gap-2"}>
+                    <div className={"flex flex-col gap-2 items-center"}>
                         {/*<div className={"w-32"}>*/}
                         {/*    <img*/}
                         {/*        src={`https://crafatar.com/avatars/${user.uuid.replace("-", "")}?size=128&overlay`}*/}
