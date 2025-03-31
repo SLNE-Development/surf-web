@@ -1,4 +1,4 @@
-import {CoreUserData} from "@/types";
+import {BanPunishmentData, CoreUserData} from "@/types";
 import {Head} from "@inertiajs/react";
 import AuthenticatedLayout from "@/layouts/authenticated-layout";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
@@ -19,7 +19,10 @@ export enum CoreUserShowTabType {
     Transactions = "transactions",
 }
 
-export default function CoreUserShowPage({user}: { user: CoreUserData; }) {
+export default function CoreUserShowPage({user, bans}: {
+    user: CoreUserData;
+    bans: BanPunishmentData[]
+}) {
     const [selectedTab, setSelectedTab] = useState<CoreUserShowTabType>(CoreUserShowTabType.Information);
     const searchParams = new URLSearchParams(location.search);
     const tab = searchParams.get("tab");
@@ -54,7 +57,7 @@ export default function CoreUserShowPage({user}: { user: CoreUserData; }) {
             </TabsList>
 
             <CoreUserShowInformationTab user={user}/>
-            <CoreUserShowBansTab user={user}/>
+            <CoreUserShowBansTab user={user} bans={bans}/>
             <PunishKicksTab user={user}/>
             <PunishMutesTab user={user}/>
             <PunishWarnsTab user={user}/>

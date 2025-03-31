@@ -2,6 +2,7 @@
 
 namespace App\Data\Core;
 
+use App\Data\Punishment\BanPunishmentData;
 use Carbon\CarbonImmutable;
 use Spatie\LaravelData\Attributes\LoadRelation;
 use Spatie\LaravelData\Data;
@@ -20,6 +21,9 @@ class CoreUserData extends Data
         /** @var array<CoreUserNameHistoryData> */
         #[LoadRelation]
         public array            $name_histories,
+
+        /** @var array<BanPunishmentData> */
+        public ?array           $bans
     )
     {
     }

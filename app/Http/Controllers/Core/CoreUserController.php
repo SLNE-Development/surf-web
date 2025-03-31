@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Core;
 
 use App\Data\Core\CoreUserData;
+use App\Data\Punishment\BanPunishmentData;
 use App\Http\Controllers\Controller;
 use App\Models\Core\CoreUser;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ class CoreUserController extends Controller
     {
         return Inertia::render('panel/core/users/show/page', [
             'user' => CoreUserData::from($user),
+            "bans" => Inertia::optional(fn() => BanPunishmentData::collect($user->bans()->get())),
         ]);
     }
 }

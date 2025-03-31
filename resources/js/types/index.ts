@@ -1,3 +1,20 @@
+export type BanPunishmentData = {
+    id: number;
+    punishment_id: string;
+    punished_uuid: string;
+    server: string | null;
+    security_ban: boolean;
+    permanent: boolean;
+    raw_ban: boolean;
+    reason: string;
+    expiration_date: string | null;
+    issuer_uuid: string;
+    punishment_date: string;
+    unpunished_date: string | null;
+    unpunished_issuer_id: string | null;
+    created_at: string | null;
+    updated_at: string | null;
+};
 export type CoreUserData = {
     id: number;
     uuid: string;
@@ -7,6 +24,7 @@ export type CoreUserData = {
     created_at: string | null;
     updated_at: string | null;
     name_histories: Array<CoreUserNameHistoryData>;
+    bans: Array<BanPunishmentData> | null;
 };
 export type CoreUserNameHistoryData = {
     id: number;
