@@ -5,7 +5,7 @@ export function IconText({icon: Icon, text, children}: {
     text?: string;
     children?: any
 }) {
-    return <span className={"inline-flex items-center flex-row gap-1"}>
+    return <span className={"inline-flex items-center flex-row gap-1 lg:gap-2"}>
         {Icon && <Icon/>}
         {text && <span>{text}</span>}
         {children}
