@@ -6,6 +6,7 @@ import * as React from "react";
 import {useEffect, useState} from "react";
 import CoreUserShowInformationTab from "@/pages/panel/core/users/show/components/information-tab";
 import {CoreUserShowQuickActions} from "@/pages/panel/core/users/show/components/quick-actions";
+import {CoreUserShowBansTab} from "@/pages/panel/core/users/show/components/bans-tab";
 
 export enum CoreUserShowTabType {
     Information = "information",
@@ -42,7 +43,7 @@ export default function CoreUserShowPage({user}: { user: CoreUserData; }) {
               onValueChange={value => setSelectedTab(value as any)}>
             <TabsList>
                 <TabsTrigger value={CoreUserShowTabType.Information}>Informationen</TabsTrigger>
-                <TabsTrigger value={CoreUserShowTabType.Bans}>Bans</TabsTrigger>
+                <TabsTrigger value={CoreUserShowTabType.Bans}>Banns</TabsTrigger>
                 <TabsTrigger value={CoreUserShowTabType.Kicks}>Kicks</TabsTrigger>
                 <TabsTrigger value={CoreUserShowTabType.Mutes}>Mutes</TabsTrigger>
                 <TabsTrigger value={CoreUserShowTabType.Warns}>Warnungen</TabsTrigger>
@@ -53,7 +54,7 @@ export default function CoreUserShowPage({user}: { user: CoreUserData; }) {
             </TabsList>
 
             <CoreUserShowInformationTab user={user}/>
-            <PunishBansTab user={user}/>
+            <CoreUserShowBansTab user={user}/>
             <PunishKicksTab user={user}/>
             <PunishMutesTab user={user}/>
             <PunishWarnsTab user={user}/>
@@ -62,12 +63,6 @@ export default function CoreUserShowPage({user}: { user: CoreUserData; }) {
             <TransactionsTab user={user}/>
         </Tabs>
     </AuthenticatedLayout>
-}
-
-function PunishBansTab({user}: { user: CoreUserData }) {
-    return <TabsContent value={CoreUserShowTabType.Bans}>
-        <h2>Bans</h2>
-    </TabsContent>
 }
 
 function PunishMutesTab({user}: { user: CoreUserData }) {
