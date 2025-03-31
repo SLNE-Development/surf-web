@@ -23,7 +23,8 @@ Route::get('/dashboard', function () {
 
 Route::middleware("auth")->name("core.")->prefix("core")->group(function () {
     Route::get("/users", [CoreUserController::class, "index"])->name("users.index")->breadcrumb("Spielerverwaltung");
-    Route::get("/users/{user}", [CoreUserController::class, "show"])->name("users.show")->breadcrumb(fn(CoreUser $user) => $user->last_name ?? "/", "core.users.index");
+    Route::get("/users/{user}", [CoreUserController::class, "show"])->name("users.show")
+        ->breadcrumb(fn($user) => $user instanceof CoreUser ? ($user->last_name ?? "/") : "/", "core.users.index");
 });
 
 Route::middleware("auth")->name("team.")->prefix("team")->group(function () {
