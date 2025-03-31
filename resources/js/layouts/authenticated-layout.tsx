@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/navigation/sidebar/app-sidebar";
+import {AppSidebar} from "@/components/navigation/sidebar/app-sidebar";
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -6,20 +6,17 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-    SidebarInset,
-    SidebarProvider,
-    SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { PageProps } from "@/types/helper-types";
-import { usePage } from "@inertiajs/react";
-import { ThemeProvider } from "next-themes";
-import { PropsWithChildren } from "react";
+import {Separator} from "@/components/ui/separator";
+import {SidebarInset, SidebarProvider, SidebarTrigger,} from "@/components/ui/sidebar";
+import {PageProps} from "@/types/helper-types";
+import {usePage} from "@inertiajs/react";
+import {ThemeProvider} from "next-themes";
+import {PropsWithChildren} from "react";
+import {Toaster} from "@/components/ui/sonner";
 
 export default function AuthenticatedLayout({
-    children,
-}: PropsWithChildren<{}>) {
+                                                children,
+                                            }: PropsWithChildren<{}>) {
     const page = usePage<PageProps>().props;
     const user = page.auth.user;
     const breadcrumbs = page.breadcrumbs;
@@ -27,11 +24,11 @@ export default function AuthenticatedLayout({
     return (
         <ThemeProvider defaultTheme="dark" attribute={"class"}>
             <SidebarProvider>
-                <AppSidebar user={user} />
+                <AppSidebar user={user}/>
                 <SidebarInset>
                     <header className="flex h-12 shrink-0 items-center gap-2">
                         <div className="flex items-center gap-2 px-4">
-                            <SidebarTrigger className="-ml-1" />
+                            <SidebarTrigger className="-ml-1"/>
                             <Separator
                                 orientation="vertical"
                                 className="mr-2 h-4"
@@ -52,7 +49,7 @@ export default function AuthenticatedLayout({
                                             </BreadcrumbItem>
 
                                             {index < breadcrumbs.length - 1 && (
-                                                <BreadcrumbSeparator />
+                                                <BreadcrumbSeparator/>
                                             )}
                                         </div>
                                     ))}
@@ -60,11 +57,13 @@ export default function AuthenticatedLayout({
                             </Breadcrumb>
                         </div>
                     </header>
-                    <main className="p-4 lg:p-6  flex flex-col gap-6">
+                    <main className="p-4 lg:p-6 flex flex-col gap-6 relative">
                         {children}
                     </main>
                 </SidebarInset>
             </SidebarProvider>
+
+            <Toaster/>
         </ThemeProvider>
     );
 }

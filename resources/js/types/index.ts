@@ -6,6 +6,12 @@ export type CoreUserData = {
     last_name: string | null;
     created_at: string | null;
     updated_at: string | null;
+    name_histories: Array<CoreUserNameHistoryData>;
+};
+export type CoreUserNameHistoryData = {
+    id: number;
+    name: string;
+    created_at: string | null;
 };
 export type ServerTeamMemberData = {
     id: number;

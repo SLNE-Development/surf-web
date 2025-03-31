@@ -6,17 +6,11 @@ use App\Http\Resources\UserResource;
 use App\Models\Core\CoreUser;
 use App\Models\Team\Member\ServerTeamMember;
 use App\Models\User;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('panel/welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', function () {

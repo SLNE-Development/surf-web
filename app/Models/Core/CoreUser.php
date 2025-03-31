@@ -17,6 +17,11 @@ class CoreUser extends Model
         'last_seen' => 'datetime',
     ];
 
+    public function nameHistories()
+    {
+        return $this->hasMany(CoreUserNameHistory::class);
+    }
+
     public function getRouteKeyName(): string
     {
         return 'uuid';
