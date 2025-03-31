@@ -32,7 +32,8 @@ export function CoreUserShowQuickActions({user}: { user: CoreUserData }) {
                 </TooltipContent>
             </Tooltip>
 
-            <div className={"group-hover:flex flex flex-col-reverse gap-2"}>
+            <div
+                className={"max-h-0 group-hover:max-h-full overflow-hidden flex flex-col-reverse gap-2"}>
                 <CoreUserShowQuickActionBan user={user}/>
                 <CoreUserShowQuickActionKick user={user}/>
                 <CoreUserShowQuickActionDisconnect user={user}/>
